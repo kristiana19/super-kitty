@@ -44,7 +44,7 @@ const GameCanvas = ({ gameState, onScoreUpdate, onLifeLoss, onLevelComplete, onG
     }
 
     animationFrameRef.current = requestAnimationFrame(gameLoop);
-  }, [gameState.gameStatus, onScoreUpdate, onLifeLoss]);
+  }, [gameState.gameStatus, onScoreUpdate, onLifeLoss, onLevelComplete, onGameWon]);
 
   useEffect(() => {
     const canvas = canvasRef.current;
