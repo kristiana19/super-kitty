@@ -168,13 +168,33 @@ class GameEngine {
     return basePlatforms;
   }
 
-  generateEnemies() {
-    return [
-      { x: 350, y: 510, width: 30, height: 30, velocityX: -1, type: 'badtz', alive: true },
-      { x: 650, y: 510, width: 25, height: 25, velocityX: 1.5, type: 'melody', alive: true },
-      { x: 450, y: 360, width: 35, height: 35, velocityX: -0.8, type: 'pompom', alive: true },
-      { x: 250, y: 260, width: 28, height: 28, velocityX: 1.2, type: 'cinna', alive: true }
-    ];
+  generateEnemies(level = 1) {
+    if (level === 1) {
+      return [
+        { x: 350, y: 510, width: 30, height: 30, velocityX: -1, type: 'badtz', alive: true },
+        { x: 650, y: 510, width: 25, height: 25, velocityX: 1.5, type: 'melody', alive: true },
+        { x: 450, y: 360, width: 35, height: 35, velocityX: -0.8, type: 'pompom', alive: true }
+      ];
+    } else if (level === 2) {
+      return [
+        { x: 320, y: 510, width: 30, height: 30, velocityX: -1.2, type: 'badtz', alive: true },
+        { x: 680, y: 510, width: 25, height: 25, velocityX: 1.8, type: 'melody', alive: true },
+        { x: 320, y: 280, width: 35, height: 35, velocityX: -1, type: 'pompom', alive: true },
+        { x: 550, y: 240, width: 28, height: 28, velocityX: 1.5, type: 'cinna', alive: true },
+        { x: 150, y: 160, width: 32, height: 32, velocityX: -0.7, type: 'badtz', alive: true }
+      ];
+    } else if (level === 3) {
+      return [
+        { x: 300, y: 510, width: 30, height: 30, velocityX: -1.5, type: 'badtz', alive: true },
+        { x: 700, y: 510, width: 25, height: 25, velocityX: 2, type: 'melody', alive: true },
+        { x: 200, y: 240, width: 35, height: 35, velocityX: -1.2, type: 'pompom', alive: true },
+        { x: 450, y: 200, width: 28, height: 28, velocityX: 1.8, type: 'cinna', alive: true },
+        { x: 150, y: 140, width: 32, height: 32, velocityX: -1, type: 'badtz', alive: true },
+        { x: 500, y: 80, width: 30, height: 30, velocityX: 1.3, type: 'melody', alive: true }
+      ];
+    }
+    
+    return [];
   }
 
   generateCollectibles() {
