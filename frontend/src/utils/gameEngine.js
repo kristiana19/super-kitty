@@ -479,6 +479,11 @@ class GameEngine {
     this.levelWon = false;
   }
 
+  updateCamera() {
+    // Simple camera that could follow the player
+    // For now, we'll keep it static but this is where camera logic would go
+  }
+
   render(ctx) {
     // Render platforms
     this.platforms.forEach(platform => {
@@ -494,6 +499,9 @@ class GameEngine {
       ctx.lineWidth = 2;
       ctx.strokeRect(platform.x, platform.y, platform.width, platform.height);
     });
+
+    // Render goal area
+    this.drawGoal(ctx);
 
     // Render collectibles
     this.collectibles.forEach(collectible => {
@@ -524,6 +532,11 @@ class GameEngine {
       ctx.fillRect(particle.x, particle.y, 4, 4);
       ctx.globalAlpha = 1;
     });
+
+    // Render level completion message
+    if (this.levelComplete && !this.gameWon) {
+      this.drawLevelCompleteMessage(ctx);
+    }
   }
 
   drawPlayer(ctx) {
