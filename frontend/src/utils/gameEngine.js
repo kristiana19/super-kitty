@@ -357,6 +357,22 @@ class GameEngine {
     });
   }
 
+  checkWinCondition() {
+    // Check if player reached the goal
+    if (this.isColliding(this.player, this.goal)) {
+      // Check if all hearts are collected
+      const allHeartsCollected = this.collectibles
+        .filter(item => item.type === 'heart')
+        .every(heart => heart.collected);
+      
+      if (allHeartsCollected) {
+        this.levelWon = true;
+        this.levelComplete = true;
+        this.createParticles(this.goal.x, this.goal.y, '#FFD700', 15);
+      }
+    }
+  }
+
   checkCollisions() {
     // Platform collisions
     this.player.onGround = false;
