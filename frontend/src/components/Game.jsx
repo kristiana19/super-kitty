@@ -7,7 +7,8 @@ const Game = () => {
     score: 0,
     lives: 3,
     level: 1,
-    gameStatus: 'playing' // playing, paused, gameOver
+    gameStatus: 'playing', // playing, paused, gameOver, levelComplete, gameWon
+    showLevelComplete: false
   });
 
   const [showInstructions, setShowInstructions] = useState(true);
