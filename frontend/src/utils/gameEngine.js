@@ -197,16 +197,46 @@ class GameEngine {
     return [];
   }
 
-  generateCollectibles() {
-    return [
-      { x: 180, y: 420, width: 20, height: 20, type: 'heart', collected: false },
-      { x: 430, y: 370, width: 20, height: 20, type: 'heart', collected: false },
-      { x: 680, y: 320, width: 20, height: 20, type: 'heart', collected: false },
-      { x: 230, y: 270, width: 20, height: 20, type: 'heart', collected: false },
-      { x: 530, y: 220, width: 20, height: 20, type: 'heart', collected: false },
-      { x: 120, y: 520, width: 15, height: 15, type: 'bow', collected: false },
-      { x: 720, y: 520, width: 15, height: 15, type: 'bow', collected: false }
-    ];
+  generateCollectibles(level = 1) {
+    if (level === 1) {
+      return [
+        { x: 180, y: 420, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 430, y: 370, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 680, y: 320, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 230, y: 270, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 530, y: 220, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 120, y: 520, width: 15, height: 15, type: 'bow', collected: false },
+        { x: 720, y: 520, width: 15, height: 15, type: 'bow', collected: false }
+      ];
+    } else if (level === 2) {
+      return [
+        { x: 150, y: 450, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 310, y: 390, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 480, y: 350, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 350, y: 290, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 580, y: 250, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 130, y: 170, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 430, y: 120, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 50, y: 520, width: 15, height: 15, type: 'bow', collected: false },
+        { x: 750, y: 520, width: 15, height: 15, type: 'bow', collected: false }
+      ];
+    } else if (level === 3) {
+      return [
+        { x: 80, y: 470, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 210, y: 420, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 330, y: 370, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 510, y: 330, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 650, y: 290, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 230, y: 250, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 480, y: 210, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 180, y: 150, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 530, y: 90, width: 20, height: 20, type: 'heart', collected: false },
+        { x: 30, y: 520, width: 15, height: 15, type: 'bow', collected: false },
+        { x: 770, y: 520, width: 15, height: 15, type: 'bow', collected: false }
+      ];
+    }
+    
+    return [];
   }
 
   update() {
