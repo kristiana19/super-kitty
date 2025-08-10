@@ -539,6 +539,63 @@ class GameEngine {
     }
   }
 
+  drawGoal(ctx) {
+    // Draw the goal area - a magical pink portal
+    const x = this.goal.x;
+    const y = this.goal.y;
+    const w = this.goal.width;
+    const h = this.goal.height;
+    
+    // Goal background with sparkle effect
+    const gradient = ctx.createLinearGradient(x, y, x, y + h);
+    gradient.addColorStop(0, '#FFD700');
+    gradient.addColorStop(0.5, '#FF69B4');
+    gradient.addColorStop(1, '#FF1493');
+    
+    ctx.fillStyle = gradient;
+    ctx.fillRect(x, y, w, h);
+    
+    // Border
+    ctx.strokeStyle = '#FFD700';
+    ctx.lineWidth = 3;
+    ctx.strokeRect(x, y, w, h);
+    
+    // Goal text
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 12px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText('GOAL!', x + w/2, y + h/2 - 10);
+    ctx.fillText('Collect', x + w/2, y + h/2 + 5);
+    ctx.fillText('All ♥!', x + w/2, y + h/2 + 20);
+    
+    // Reset text align
+    ctx.textAlign = 'left';
+  }
+
+  drawLevelCompleteMessage(ctx) {
+    // Semi-transparent overlay
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillRect(0, 0, this.canvasWidth, this.canvasHeight);
+    
+    // Level complete message
+    ctx.fillStyle = '#FFD700';
+    ctx.font = 'bold 48px Courier New';
+    ctx.textAlign = 'center';
+    ctx.fillText('LEVEL COMPLETE!', this.canvasWidth/2, this.canvasHeight/2 - 50);
+    
+    if (this.currentLevel < 3) {
+      ctx.fillStyle = '#FF69B4';
+      ctx.font = 'bold 24px Courier New';
+      ctx.fillText('Press SPACE for Next Level!', this.canvasWidth/2, this.canvasHeight/2 + 20);
+    } else {
+      ctx.fillStyle = '#FF69B4';
+      ctx.font = 'bold 24px Courier New';
+      ctx.fillText('You Won All Levels!', this.canvasWidth/2, this.canvasHeight/2 + 20);
+    }
+    
+    ctx.textAlign = 'left';
+  }
+
   drawPlayer(ctx) {
     // Hello Kitty body
     ctx.fillStyle = '#FFFFFF';
