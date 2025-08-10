@@ -119,20 +119,53 @@ class GameEngine {
     document.addEventListener('keyup', this.handleKeyUp);
   }
 
-  generatePlatforms() {
-    return [
+  generatePlatforms(level = 1) {
+    const basePlatforms = [
       // Ground platforms
       { x: 0, y: 550, width: 200, height: 50, type: 'ground' },
       { x: 300, y: 550, width: 200, height: 50, type: 'ground' },
       { x: 600, y: 550, width: 200, height: 50, type: 'ground' },
-      
-      // Floating platforms
-      { x: 150, y: 450, width: 100, height: 20, type: 'platform' },
-      { x: 400, y: 400, width: 120, height: 20, type: 'platform' },
-      { x: 650, y: 350, width: 100, height: 20, type: 'platform' },
-      { x: 200, y: 300, width: 150, height: 20, type: 'platform' },
-      { x: 500, y: 250, width: 100, height: 20, type: 'platform' }
     ];
+
+    if (level === 1) {
+      return [
+        ...basePlatforms,
+        // Level 1 platforms
+        { x: 150, y: 450, width: 100, height: 20, type: 'platform' },
+        { x: 400, y: 400, width: 120, height: 20, type: 'platform' },
+        { x: 650, y: 350, width: 100, height: 20, type: 'platform' },
+        { x: 200, y: 300, width: 150, height: 20, type: 'platform' },
+        { x: 500, y: 250, width: 100, height: 20, type: 'platform' }
+      ];
+    } else if (level === 2) {
+      return [
+        ...basePlatforms,
+        // Level 2 - more challenging
+        { x: 120, y: 480, width: 80, height: 20, type: 'platform' },
+        { x: 280, y: 420, width: 60, height: 20, type: 'platform' },
+        { x: 450, y: 380, width: 80, height: 20, type: 'platform' },
+        { x: 320, y: 320, width: 100, height: 20, type: 'platform' },
+        { x: 550, y: 280, width: 120, height: 20, type: 'platform' },
+        { x: 100, y: 200, width: 150, height: 20, type: 'platform' },
+        { x: 400, y: 150, width: 200, height: 20, type: 'platform' }
+      ];
+    } else if (level === 3) {
+      return [
+        ...basePlatforms,
+        // Level 3 - expert level
+        { x: 50, y: 500, width: 60, height: 20, type: 'platform' },
+        { x: 180, y: 450, width: 50, height: 20, type: 'platform' },
+        { x: 300, y: 400, width: 80, height: 20, type: 'platform' },
+        { x: 480, y: 360, width: 60, height: 20, type: 'platform' },
+        { x: 620, y: 320, width: 70, height: 20, type: 'platform' },
+        { x: 200, y: 280, width: 100, height: 20, type: 'platform' },
+        { x: 450, y: 240, width: 80, height: 20, type: 'platform' },
+        { x: 150, y: 180, width: 120, height: 20, type: 'platform' },
+        { x: 500, y: 120, width: 150, height: 20, type: 'platform' }
+      ];
+    }
+    
+    return basePlatforms;
   }
 
   generateEnemies() {
