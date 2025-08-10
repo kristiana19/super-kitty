@@ -261,6 +261,46 @@
   font-size: 2rem;
 }
 
+.victory-card {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  border: 4px solid #FF1493;
+}
+
+.victory-card h2 {
+  color: #8B0000;
+  text-shadow: 2px 2px 4px rgba(255, 215, 0, 0.8);
+}
+
+.victory-text {
+  margin: 20px 0;
+}
+
+.victory-text p {
+  color: #8B0000;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.level-complete-card {
+  background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+  border: 4px solid #FF1493;
+}
+
+.level-complete-card h2 {
+  color: #8B0000;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.level-progress {
+  margin: 20px 0;
+}
+
+.level-progress p {
+  color: #8B0000;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
 .game-over-buttons {
   display: flex;
   gap: 15px;
