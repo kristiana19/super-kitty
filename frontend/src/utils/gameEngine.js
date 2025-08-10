@@ -254,6 +254,9 @@ class GameEngine {
     // Check collisions
     this.checkCollisions();
     
+    // Check win condition
+    this.checkWinCondition();
+    
     // Update camera (simple following)
     this.updateCamera();
     
@@ -261,11 +264,15 @@ class GameEngine {
     const result = {
       scoreChanged: this.score !== this.lastScoreChange,
       score: this.score,
-      lifeLost: this.lastLifeLoss
+      lifeLost: this.lastLifeLoss,
+      levelWon: this.levelWon,
+      gameWon: this.gameWon,
+      currentLevel: this.currentLevel
     };
     
     this.lastScoreChange = this.score;
     this.lastLifeLoss = false;
+    this.levelWon = false;
     
     return result;
   }
