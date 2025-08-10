@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, useCallback } from 'react';
 import { gameEngine } from '../utils/gameEngine';
 
-const GameCanvas = ({ gameState, onScoreUpdate, onLifeLoss }) => {
+const GameCanvas = ({ gameState, onScoreUpdate, onLifeLoss, onLevelComplete, onGameWon }) => {
   const canvasRef = useRef(null);
   const gameEngineRef = useRef(null);
   const animationFrameRef = useRef(null);
