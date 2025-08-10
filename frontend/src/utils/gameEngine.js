@@ -16,6 +16,9 @@ class GameEngine {
     this.score = 0;
     this.gameTime = 0;
     this.lastScoreUpdate = 0;
+    this.currentLevel = 1;
+    this.levelComplete = false;
+    this.gameWon = false;
     
     // Hello Kitty player
     this.player = {
@@ -47,14 +50,18 @@ class GameEngine {
     };
 
     // Game objects
-    this.platforms = this.generatePlatforms();
-    this.enemies = this.generateEnemies();
-    this.collectibles = this.generateCollectibles();
+    this.platforms = this.generatePlatforms(this.currentLevel);
+    this.enemies = this.generateEnemies(this.currentLevel);
+    this.collectibles = this.generateCollectibles(this.currentLevel);
     this.particles = [];
+
+    // Add finish line/goal
+    this.goal = this.generateGoal();
 
     // Game state tracking
     this.lastLifeLoss = false;
     this.lastScoreChange = 0;
+    this.levelWon = false;
   }
 
   setupControls() {
