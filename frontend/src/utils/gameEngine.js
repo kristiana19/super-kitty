@@ -85,6 +85,10 @@ class GameEngine {
         case 'KeyW':
         case 'Space':
           this.keys.space = true;
+          // Handle level progression
+          if (this.levelComplete && this.currentLevel < 3) {
+            this.nextLevel();
+          }
           e.preventDefault();
           break;
         case 'KeyP':
