@@ -64,7 +64,11 @@ const Game = () => {
 
   const startGame = () => {
     setShowInstructions(false);
-    setGameState(prev => ({ ...prev, gameStatus: 'playing' }));
+    setGameState(prev => ({ 
+      ...prev, 
+      gameStatus: 'playing',
+      showLevelComplete: false
+    }));
   };
 
   if (showInstructions) {
