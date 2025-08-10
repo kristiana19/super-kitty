@@ -31,6 +31,16 @@ const GameCanvas = ({ gameState, onScoreUpdate, onLifeLoss, onLevelComplete, onG
       if (result.lifeLost) {
         onLifeLoss();
       }
+      if (result.levelWon) {
+        onLevelComplete(result.currentLevel);
+        // Trigger next level in game engine after a delay
+        setTimeout(() => {
+          gameEngineRef.current.nextLevel();
+        }, 100);
+      }
+      if (result.gameWon) {
+        onGameWon();
+      }
     }
 
     animationFrameRef.current = requestAnimationFrame(gameLoop);
