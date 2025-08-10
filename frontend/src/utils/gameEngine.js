@@ -420,9 +420,40 @@ class GameEngine {
     this.player.velocityY = 0;
   }
 
-  updateCamera() {
-    // Simple camera that could follow the player
-    // For now, we'll keep it static but this is where camera logic would go
+  generateGoal() {
+    // Goal area - reach this to complete the level
+    return {
+      x: 700, 
+      y: 200, 
+      width: 60, 
+      height: 80, 
+      type: 'goal'
+    };
+  }
+
+  nextLevel() {
+    this.currentLevel++;
+    if (this.currentLevel > 3) {
+      this.gameWon = true;
+      return;
+    }
+    
+    // Reset player position
+    this.player.x = 100;
+    this.player.y = 400;
+    this.player.velocityX = 0;
+    this.player.velocityY = 0;
+    
+    // Generate new level content
+    this.platforms = this.generatePlatforms(this.currentLevel);
+    this.enemies = this.generateEnemies(this.currentLevel);
+    this.collectibles = this.generateCollectibles(this.currentLevel);
+    this.goal = this.generateGoal();
+    this.particles = [];
+    
+    // Reset level states
+    this.levelComplete = false;
+    this.levelWon = false;
   }
 
   render(ctx) {
