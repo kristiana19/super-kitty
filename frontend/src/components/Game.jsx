@@ -17,6 +17,30 @@ const Game = () => {
     setGameState(prev => ({ ...prev, score: newScore }));
   };
 
+  const handleLevelComplete = (newLevel) => {
+    setGameState(prev => ({
+      ...prev,
+      level: newLevel,
+      gameStatus: 'levelComplete',
+      showLevelComplete: true
+    }));
+  };
+
+  const handleGameWon = () => {
+    setGameState(prev => ({
+      ...prev,
+      gameStatus: 'gameWon'
+    }));
+  };
+
+  const handleNextLevel = () => {
+    setGameState(prev => ({
+      ...prev,
+      gameStatus: 'playing',
+      showLevelComplete: false
+    }));
+  };
+
   const handleLifeLoss = () => {
     setGameState(prev => {
       const newLives = prev.lives - 1;
