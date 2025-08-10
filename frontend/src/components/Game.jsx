@@ -153,10 +153,49 @@ const Game = () => {
         </div>
       )}
 
+      {gameState.gameStatus === 'gameWon' && (
+        <div className="game-over-screen">
+          <div className="game-over-card victory-card">
+            <h2>🎉 CONGRATULATIONS! 🎉</h2>
+            <p>You completed all levels!</p>
+            <p>Final Score: {gameState.score}</p>
+            <div className="victory-text">
+              <p>Hello Kitty is proud of you! 💖</p>
+            </div>
+            <div className="game-over-buttons">
+              <button className="retry-button" onClick={resetGame}>
+                Play Again 🌟
+              </button>
+              <button className="menu-button" onClick={() => setShowInstructions(true)}>
+                Main Menu 🏠
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {gameState.showLevelComplete && gameState.gameStatus === 'levelComplete' && (
+        <div className="game-over-screen">
+          <div className="game-over-card level-complete-card">
+            <h2>🌟 Level {gameState.level - 1} Complete! 🌟</h2>
+            <p>Score: {gameState.score}</p>
+            <div className="level-progress">
+              <p>Get ready for Level {gameState.level}!</p>
+              <p>More challenges await! 💖</p>
+            </div>
+            <button className="retry-button" onClick={handleNextLevel}>
+              Next Level! 🚀
+            </button>
+          </div>
+        </div>
+      )}
+
       <GameCanvas
         gameState={gameState}
         onScoreUpdate={handleScoreUpdate}
         onLifeLoss={handleLifeLoss}
+        onLevelComplete={handleLevelComplete}
+        onGameWon={handleGameWon}
       />
 
       {gameState.gameStatus === 'paused' && (
