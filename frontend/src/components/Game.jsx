@@ -57,7 +57,8 @@ const Game = () => {
       score: 0,
       lives: 3,
       level: 1,
-      gameStatus: 'playing'
+      gameStatus: 'playing',
+      showLevelComplete: false
     });
   };
 
