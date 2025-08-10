@@ -1,0 +1,330 @@
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #FF69B4 0%, #FFB6C1 50%, #FFC0CB 100%);
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Instruction Screen */
+.instruction-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.instruction-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 4px solid #FF1493;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(255, 20, 147, 0.3);
+  backdrop-filter: blur(10px);
+  max-width: 500px;
+}
+
+.game-title {
+  font-size: 2.5rem;
+  color: #FF1493;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Pixel Hello Kitty */
+.kitty-pixel {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+}
+
+.kitty-face {
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+
+.kitty-ear {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #FFB6C1;
+  border: 2px solid #FF1493;
+}
+
+.kitty-ear-left {
+  top: 5px;
+  left: 10px;
+  transform: rotate(-30deg);
+  border-radius: 50% 0;
+}
+
+.kitty-ear-right {
+  top: 5px;
+  right: 10px;
+  transform: rotate(30deg);
+  border-radius: 0 50%;
+}
+
+.kitty-head {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #FFFFFF;
+  border: 3px solid #FF1493;
+  border-radius: 50%;
+  top: 15px;
+  left: 10px;
+}
+
+.kitty-eye {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #000;
+  border-radius: 50%;
+  top: 18px;
+}
+
+.kitty-eye-left {
+  left: 15px;
+}
+
+.kitty-eye-right {
+  right: 15px;
+}
+
+.kitty-nose {
+  position: absolute;
+  width: 4px;
+  height: 3px;
+  background: #FFD700;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 50% 50%;
+}
+
+.kitty-bow {
+  position: absolute;
+  width: 16px;
+  height: 12px;
+  background: #FF1493;
+  top: -5px;
+  right: 5px;
+  border-radius: 4px;
+}
+
+.kitty-bow::before {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 12px;
+  background: #DC143C;
+  left: 6px;
+  top: 0;
+}
+
+/* Instructions */
+.instructions h2 {
+  color: #FF1493;
+  margin: 30px 0 20px 0;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.control-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.key {
+  background: #FF1493;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  min-width: 80px;
+  text-align: center;
+}
+
+.game-info {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.game-info p {
+  margin: 8px 0;
+  color: #666;
+}
+
+.start-button {
+  background: linear-gradient(45deg, #FF1493, #FF69B4);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  border-radius: 25px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+  transition: all 0.3s ease;
+}
+
+.start-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 20, 147, 0.6);
+}
+
+/* Game HUD */
+.game-hud {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 3px solid #FF1493;
+  border-radius: 15px;
+  padding: 15px 25px;
+  margin-bottom: 15px;
+  backdrop-filter: blur(5px);
+}
+
+.hud-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hud-label {
+  color: #FF1493;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.hud-value {
+  color: #DC143C;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Game Canvas */
+.game-canvas-container {
+  border: 4px solid #FF1493;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(255, 20, 147, 0.3);
+}
+
+.game-canvas {
+  display: block;
+  background: #87CEEB;
+  outline: none;
+}
+
+/* Game Over Screen */
+.game-over-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+}
+
+.game-over-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 4px solid #FF1493;
+  border-radius: 20px;
+  padding: 40px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.game-over-card h2 {
+  color: #FF1493;
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+.game-over-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.retry-button, .menu-button {
+  background: linear-gradient(45deg, #FF1493, #FF69B4);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.retry-button:hover, .menu-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 20, 147, 0.4);
+}
+
+/* Pause Screen */
+.pause-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.pause-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 4px solid #FF1493;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.pause-card h2 {
+  color: #FF1493;
+  margin-bottom: 15px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .game-container {
+    padding: 10px;
+  }
+  
+  .game-hud {
+    width: 90vw;
+    max-width: 800px;
+  }
+  
+  .game-canvas {
+    max-width: 90vw;
+    height: auto;
+  }
+}
