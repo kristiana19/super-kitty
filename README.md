@@ -1,5 +1,7 @@
 # 🎀 Hello Kitty Game — Lokalno pokretanje
 
+![alt text](image.png)
+
 ## ✅ Preduslovi
 
 Instaliraj sljedeće alate i provjeri verzije:
